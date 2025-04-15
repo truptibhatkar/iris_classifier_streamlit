@@ -25,5 +25,5 @@ This is a simple Streamlit web application built using the Iris dataset and a Ra
 1. Clone the repo:
 
 ```bash
-git clone https://github.com/your-username/streamlit-project.git
+git clone https://github.com/truptibhatkar/iris_classifier_streamlit/blob/main/app.py
 
