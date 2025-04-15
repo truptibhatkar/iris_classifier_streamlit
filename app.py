@@ -16,10 +16,12 @@ model=RandomForestClassifier()
 model.fit(df.iloc[:,:-1],df['species'])
 
 st.sidebar.title("Input features")
-sepal_length=st.slider("Select Sepal Length",float(df['sepal length (cm)'].min()),float(df['sepal length (cm)'].max()))
-sepal_width=st.slider("Select sepal width",float(df['sepal width (cm)'].min()),float(df['sepal width (cm)'].max()))
-petal_length=st.slider("Select petal length",float(df['petal length (cm)'].min()),float(df['petal length (cm)'].max()))
-petal_width=st.slider("Select petal width",float(df['petal width (cm)'].min()),float(df['petal width (cm)'].max()))
+st.sidebar.write("Please select your desired inputs and based on it algoriths will predict the species for you!!!")
+
+sepal_length=st.slider("Select Sepal Length :",float(df['sepal length (cm)'].min()),float(df['sepal length (cm)'].max()))
+sepal_width=st.slider("Select sepal width :",float(df['sepal width (cm)'].min()),float(df['sepal width (cm)'].max()))
+petal_length=st.slider("Select petal length :",float(df['petal length (cm)'].min()),float(df['petal length (cm)'].max()))
+petal_width=st.slider("Select petal width :",float(df['petal width (cm)'].min()),float(df['petal width (cm)'].max()))
 
 input_data = pd.DataFrame([[sepal_length, sepal_width, petal_length, petal_width]],
                           columns=['sepal length (cm)', 'sepal width (cm)', 
@@ -29,4 +31,4 @@ prediction=model.predict(input_data)
 predicted_species=target_names[prediction[0]]
 
 st.write(prediction)
-st.write(f"the predicted species is  : {predicted_species}")
+st.write(f"The predicted species is  : **{predicted_species}**")
